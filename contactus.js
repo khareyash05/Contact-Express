@@ -1,6 +1,8 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 const nodemailer = require("nodemailer")
+const dotenv = require("dotenv")
+dotenv.config({path:'.env'})
 const app = express()
 app.use(bodyParser.urlencoded({extended:true}))
 
@@ -14,7 +16,7 @@ app.post("/",function(req,res){
         service : "gmail",
         auth: {
             user: 'khareyash05@gmail.com',
-            pass: 'rogermymaster'
+            pass: process.env.pass
         }
     });
         
